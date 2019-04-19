@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "Jon",
+        "Initiative": 12,
+        "Class": "Fighter"
+    },
+    {
+        "Name": "Andrew",
+        "Initiative": 15,
+        "Class": "Ranger"
+    },
+    {
+        "Name": "Justine",
+        "Initiative": 16,
+        "Class": "Wizard"
+    }
+]
