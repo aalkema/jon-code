@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace jon_code
 {
@@ -15,23 +16,7 @@ namespace jon_code
                 Environment.Exit(0);
             }
 
-            try {
-                foreach (string line in File.ReadLines(args[0])) {
-                    string[] props = line.Split(" ");
-                    if (props.Length != 2) {
-                        Console.Error.WriteLine($"{line} needs a name with a space then an initiative");
-                        continue;
-                    }
-                    players.Add(new Player() {
-                        Name = props[0],
-                        Initiative = int.Parse(props[1]),
-                        Counted = false
-                    });
-                }
-            } catch (Exception e) {
-                Console.Error.WriteLine(e.Message);
-                Environment.Exit(0);
-            }
+            players = JsonConvert.DeserializeObject<List<Player>>(File.ReadAllText(args[0]));
 
             int highestInitiative = 0;
             Player winningPlayer = null;
